@@ -1,3 +1,12 @@
+CREATE TABLE IF NOT EXISTS users (
+  id SERIAL PRIMARY KEY,
+  full_name VARCHAR(255) NOT NULL,
+  email VARCHAR(255) UNIQUE NOT NULL,
+  password_hash TEXT NOT NULL,
+  role VARCHAR(50) DEFAULT 'user',
+  created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+  updated_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
+);
 CREATE TABLE IF NOT EXISTS opportunities (
   id SERIAL PRIMARY KEY,
   title VARCHAR(255) NOT NULL,
@@ -43,6 +52,112 @@ VALUES (
   'Mentorship, hands-on experience, and networking opportunities.',
   'https://example.com/apply',
   '2026-04-30',
+  TRUE,
+  TRUE
+);
+INSERT INTO opportunities (
+  title,
+  organization,
+  category,
+  location,
+  type,
+  work_mode,
+  description,
+  requirements,
+  benefits,
+  apply_url,
+  deadline,
+  is_featured,
+  is_published
+)
+VALUES
+(
+  'Backend Developer Internship',
+  'CodeSphere Labs',
+  'Internship',
+  'Abuja, Nigeria',
+  'Internship',
+  'Remote',
+  'Work with backend engineers to build APIs and scalable systems.',
+  'Basic Node.js, Express, and SQL knowledge.',
+  'Mentorship, remote work, certificate.',
+  'https://example.com/backend-internship',
+  '2026-05-15',
+  FALSE,
+  TRUE
+),
+(
+  'Product Design Bootcamp',
+  'DesignHub Africa',
+  'Bootcamp',
+  'Lagos, Nigeria',
+  'Bootcamp',
+  'Hybrid',
+  'An intensive design bootcamp for aspiring product designers.',
+  'Interest in UI/UX and design tools.',
+  'Portfolio projects, mentorship, networking.',
+  'https://example.com/design-bootcamp',
+  '2026-06-10',
+  TRUE,
+  TRUE
+),
+(
+  'Data Science Scholarship',
+  'FutureMinds Foundation',
+  'Scholarship',
+  'Remote',
+  'Scholarship',
+  'Remote',
+  'Scholarship opportunity for students interested in data science and machine learning.',
+  'Basic Python and mathematics knowledge.',
+  'Tuition support, mentorship, project experience.',
+  'https://example.com/data-scholarship',
+  '2026-07-01',
+  TRUE,
+  TRUE
+),
+(
+  'Software Engineering Competition',
+  'HackAfrica',
+  'Competition',
+  'Accra, Ghana',
+  'Competition',
+  'Onsite',
+  'A pan-African competition for student software developers.',
+  'Team participation and software project submission.',
+  'Cash prize, exposure, internship opportunities.',
+  'https://example.com/hackafrica',
+  '2026-08-12',
+  FALSE,
+  TRUE
+),
+(
+  'Junior Frontend Developer Job',
+  'BrightWeb Studio',
+  'Job',
+  'Nairobi, Kenya',
+  'Job',
+  'Hybrid',
+  'Join a creative team building modern web applications for startups.',
+  'React, JavaScript, and responsive design.',
+  'Salary, growth opportunities, flexible work.',
+  'https://example.com/frontend-job',
+  '2026-05-25',
+  FALSE,
+  TRUE
+),
+(
+  'Cybersecurity Fellowship',
+  'SecureNet Initiative',
+  'Scholarship',
+  'Remote',
+  'Scholarship',
+  'Remote',
+  'A fellowship for young Africans interested in cybersecurity and ethical hacking.',
+  'Basic computer networking knowledge.',
+  'Training, mentorship, certification support.',
+  'https://example.com/cyber-fellowship',
+  '2026-06-30',
   TRUE,
   TRUE
 );
